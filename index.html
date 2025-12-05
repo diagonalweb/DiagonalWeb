@@ -40,7 +40,7 @@
     }
     .btn:hover{ transform: translateY(-1px)}
     .btn:focus{ outline: 3px solid var(--ring); outline-offset:2px }
-    .btn-primary{ background:#1f2b50 }
+    .btn-primary{ background:#000000 }
 
     /* Header/Nav */
     header{
@@ -120,7 +120,12 @@
     .icon{ width:36px; height:36px; border-radius:10px; display:grid; place-items:center; background:#eaf1ff; margin-bottom:.7rem }
 
     /* Footer */
-    footer{ padding:26px 0; font-size:.95rem; color:#5a6a88; border-top:1px solid #e9eef6 }
+    footer{ padding:26px 0;
+       font-size:.95rem;
+        color:#5a6a88;
+         border-top:1px solid #e9eef6;
+         text-align: center; 
+        }
 
       /* paneles */
 .plan {
@@ -153,7 +158,6 @@
 .bg-negro .section {
   background: transparent;
 }
-
 
     /* Responsive */
     @media (max-width: 980px){
@@ -291,7 +295,97 @@
   opacity: 0.85;
 }
 
+/* Servicios: fondo negro y texto blanco y sombras jaja xda y movimiento*/
+#servicios .card {
+  background: #000 !important;
+  color: #fff !important;
+  border: 1px solid #222;
+}
+#servicios .card h3,
+#servicios .card p {
+  color: #fff !important;
+  font-size: 1.18rem;
+  line-height: 1.7;
+}
+#servicios .card {
+  transition: transform .25s ease, box-shadow .25s ease;
+}
 
+#servicios .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgb(255, 0, 0); /* glow azul */
+}
+
+/* degradacion de colores por secction*/
+.hero {
+  position: relative;
+  z-index: 1;
+}
+.hero::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0; right: 0; bottom: -1px; height: 80px;
+  background: linear-gradient(to bottom, var(--surface) 0%, #000 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.section-nosotros {
+  position: relative;
+  z-index: 1;
+}
+.section-nosotros::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0; right: 0; bottom: -1px; height: 80px;
+  background: linear-gradient(to bottom, #000 0%, #fff 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+/* Difuminado entre fondo blanco y negro al inicio de planes */
+#planes.section {
+  position: relative;
+  z-index: 1;
+}
+#planes.section::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0; right: 0; top: -1px; height: 80px;
+  background: linear-gradient(to bottom, #fff 0%, #000 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Difuminado entre fondo negro y blanco al final de planes */
+#planes.section::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0; right: 0; bottom: -1px; height: 80px;
+  background: linear-gradient(to bottom, #000 0%, #fff 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+
+
+/*alineacion svg cn h3*/
+.card-header {
+  display: flex;
+  align-items: center; /* centra verticalmente */
+  gap: 12px;           /* espacio entre icono y título */
+  margin-bottom: 0.5rem;
+}
+.card-header .icon {
+  margin-bottom: 0;    /* quita el margen inferior del icono */
+}
+.card-header h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
 /* ============================
    RESPONSIVE
 ============================ */
@@ -321,6 +415,45 @@
     font-size: 1rem;
   }
 }
+@media (max-width: 720px) {
+  #servicios .card {
+    padding: 30px !important;      /* más grande */
+    transform: scale(1.05);        /* los agranda visualmente */
+    border-radius: 20px;           /* opcional: más redondeado */
+  }
+
+  #servicios .card h3 {
+    font-size: 1.6rem;
+  }
+
+  #servicios .card p {
+    font-size: 1.30rem;
+    line-height: 1.7;
+  }
+
+  #servicios .icon {
+    width: 46px;
+    height: 46px;
+  }
+}
+/*alineacion svg cn h3*/
+.card-header {
+  display: flex;
+  flex-direction: row;      /* horizontal */
+  align-items: center;      /* centra verticalmente */
+  justify-content: center;  /* centra horizontalmente */
+  gap: 12px;
+  margin-bottom: 0.5rem;
+}
+.card-header .icon {
+  margin-bottom: 0;
+}
+.card-header h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  text-align: center;
+}
   </style>
 </head>
 <body>
@@ -333,9 +466,10 @@
       </a>
 
       <nav class="menu" aria-label="Principal">
-        <a href="#servicios">Servicios</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#nosotros">Sobre nosotros</a>
+        <a href="#inicio">Inicio</a>
+        <a href="#nosotros">Sobre Nosotros</a>
+        <a href="#servicios">Que Hacemos</a>
+        <a href="#Planes">Planes Y Precios</a>
         <a href="#contacto">Contacto</a>
       </nav>
 
@@ -348,9 +482,10 @@
 
     <div id="mobile-menu" class="mobile-panel" role="dialog" aria-label="Menú móvil">
       <div class="container">
-        <a href="#servicios">Servicios</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#nosotros">Sobre nosotros</a>
+        <a href="#inicio">Inicio</a>
+        <a href="#nosotros">Sobre Nosotros</a>
+        <a href="#servicios">Que Hacemos</a>
+        <a href="#Planes">Planes Y Precios</a>
         <a href="#contacto">Contacto</a>
       </div>
     </div>
@@ -358,7 +493,7 @@
 
 
 <!-- Hero -->
-<section class="hero full-screen">
+<section class="hero full-screen" id="inicio">
   <div class="container hero-grid">
     <div>
       <div class="eyebrow">Estudiantes UTN – La Plata</div>
@@ -386,126 +521,321 @@
 </section>
 
 
+<style>
+/* Animación fade-up */
+.fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity .7s cubic-bezier(.4,0,.2,1), transform .7s cubic-bezier(.4,0,.2,1);
+}
+.fade-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
 
+<script>
+// Animación al scrollear
+document.addEventListener("DOMContentLoaded", function() {
+  const fadeEls = document.querySelectorAll('.fade-up');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  fadeEls.forEach(el => observer.observe(el));
+});
+</script>
 <div class="bg-negro">
 <!-- QUIÉNES SOMOS -->
 <section class="section-nosotros" id="nosotros">
   <div class="nosotros-container">
 
-    <div class="nosotros-texto">
+    <div class="nosotros-texto fade-up">
       <h2>Quiénes Somos</h2>
 
       <p>
-        Somos un equipo joven formado en la UTN La Plata, apasionados por el
+        Somos un equipo joven formado en la UTN De La Plata, apasionados por el
         desarrollo web y el crecimiento digital de los negocios. Nuestro
         objetivo es ofrecer soluciones modernas, rápidas y accesibles que ayuden
-        a emprendedores y empresas a dar el siguiente paso.
+        a emprendedores y empresas a dar el siguiente paso digital.
       </p>
 
       <p>
-        Creemos en el diseño limpio, la tecnología eficiente y la comunicación
-        clara. Cada proyecto lo trabajamos como si fuera propio.
+        Nos encargamos de crear tu página web con responsabilidad y compromiso, asegurándonos de que funcione de manera eficiente,
+        sea fácil de usar y represente realmente la esencia de tu proyecto.
       </p>
     </div>
 
-    <div class="nosotros-img-box">
+    <style> 
+      /* Agranda texto "Quiénes Somos" solo en móviles */
+@media (max-width: 540px) {
+  .nosotros-texto p {
+    font-size: 1.45rem;
+  }
+  .section-nosotros h2 {
+    font-size: 2.2rem;
+  }
+}
+    </style>
+
+    <div class="nosotros-img-box fade-up">
       <img src="assest/img/utn.jpeg" alt="Equipo UTN" class="nosotros-img" />
       <span class="nosotros-sub">Diagonal Web</span>
     </div>
-
+    <br>
   </div>
 </div>
 </section>
 
 
-<!-- Planes -->
-<section id="planes" class="section">
+
+<!-- Services -->
+ <section id="servicios" class="section">
   <div class="container">
-    <h2 style="color: rgb(0, 0, 0);">Nuestros planes</h2>
-    <div class="cards">
-      
-      <article class="card plan">
-        <div class="icon">🌐</div>
-        <h3>Web Básica</h3>
-        <p>1 página moderna, responsive y con formulario de contacto. Ideal para emprendedores.</p>
-        <a href="#contacto" class="btn">Quiero este plan</a>
-      </article>
-      
-      <article class="card plan">
-        <div class="icon">🛒</div>
-        <h3>E-commerce</h3>
-        <p>Tienda online completa con catálogo, carrito, pagos y envíos integrados.</p>
-        <a href="#contacto" class="btn">Quiero este plan</a>
-      </article>
-      
-      <article class="card plan">
-        <div class="icon">🚀</div>
-        <h3>Marketing digital</h3>
-        <p>Estrategias de SEO, redes sociales y anuncios para aumentar tus ventas.</p>
-        <a href="#contacto" class="btn">Quiero este plan</a>
-      </article>
-              <a class="btn btn-primary" href="#planes">Ver planes</a>
-
-    </div>
-    </div> 
-  </section>  
-
-
-  <!-- Services -->
-  <section id="servicios" class="section">
-    <div class="container">
-      <h2>Nuestros servicios</h2>
-      <div class="cards">
-        <article class="card">
+    <h2 class="fade-up">Un Poco De Lo Que Hacemos</h2>
+    <div class="cards fade-up">
+      <article class="card">
+        <div class="card-header">
           <div class="icon" aria-hidden="true">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M3 5h18M3 12h18M3 19h18" stroke="#1f49bf" stroke-width="2" stroke-linecap="round"/>
+              <path d="M7 2h10v4c0 3-2 6-5 6s-5-3-5-6V2z" stroke="#1f49bf" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M12 12v8M9 20h6" stroke="#1f49bf" stroke-width="2" stroke-linecap="round"/>
             </svg>
           </div>
-          <h3>Diseño web</h3>
-          <p>Webs atractivas, rápidas y accesibles que reflejan la identidad de tu marca.</p>
-        </article>
+          <h3>Menu Digital Web</h3>
+        </div>
+        <p>Sitio web para tu restaurante, con menú digital, imágenes, precios y envío de pedidos directamente por WhatsApp.</p>
+      </article>
 
-        <article class="card">
+      <article class="card">
+        <div class="card-header">
           <div class="icon" aria-hidden="true">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M6 6h12l-1 12H7L6 6z" stroke="#1f49bf" stroke-width="2"/>
-              <path d="M9 6l1-2h4l1 2" stroke="#1f49bf" stroke-width="2" stroke-linecap="round"/>
+              <rect x="3" y="4" width="18" height="12" rx="1.5" stroke="#1f49bf" stroke-width="2" fill="none"/>
+              <path d="M8 20h8M12 16v4" stroke="#1f49bf" stroke-width="2" stroke-linecap="round"/>
             </svg>
           </div>
           <h3>E‑commerce</h3>
-          <p>Tiendas online fáciles de usar para aumentar tus ventas y escalar tu negocio.</p>
-        </article>
+        </div>
+        <p>Tienda online diseñada para comercio electrónico, con catálogo de productos, fotografías, precios y descripciones detalladas.</p>
+      </article>
 
-        <article class="card">
+      <article class="card">
+        <div class="card-header">
           <div class="icon" aria-hidden="true">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M4 18V6m0 12c4 0 6-6 10-6s6 6 6 6" stroke="#1f49bf" stroke-width="2" stroke-linecap="round"/>
             </svg>
           </div>
-          <h3>Marketing digital</h3>
-          <p>Estrategias de tráfico, SEO y contenido para llegar a más clientes.</p>
-        </article>
-      </div>
+          <h3>Rapido y seguro</h3>
+        </div>
+        <p>Tu Sitio web a medida en tan solo 48 horas.
+          y no solo eso, abonas recien al estar tu web en internet y sin ningun tipo de seña.</p>
+      </article>
+
+
+        <div class="planes-btn-wrapper">
+          <div class="arrow-down" aria-hidden="true">
+            <!-- Flecha SVG hacia abajo (triple de grande: 96x96) -->
+            <svg width="90" height="90" viewBox="0 0 96 96" fill="none">
+              <path d="M48 24v48M24 60l24 24 24-24" stroke="#1f49bf" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <article class="card planes-btn-card" tabindex="0" style="cursor:pointer;">
+            <div class="card-header" style="justify-content: center;">
+              <h3>Planes Y Precios</h3>
+            </div>
+            <!-- El card entero es el botón, no hay botón extra -->
+          </article>
+        </div>
     </div>
-  </section>
+  </div>
+</section>
+<style>
+.planes-btn-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 32px;
+  margin-bottom: 0;
+}
+.arrow-down {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.planes-btn-card {
+  max-width: 340px;
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  border: 1px solid #eef2f7;
+  background: var(--card);
+  padding: 22px;
+  transition: background .2s;
+}
+.planes-btn-card:active,
+.planes-btn-card:focus {
+  outline: 3px solid var(--ring);
+  background: #f3f6fb;
+}
+.planes-btn-card:hover {
+  background: #f3f6fb;
+  cursor: pointer;
+}
+@media (min-width: 980px) {
+  #servicios .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    position: relative;
+  }
+  .planes-btn-wrapper {
+    grid-column: 2 / span 1;
+    grid-row: 2;
+    margin-top: 0;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 2;
+  }
+  #servicios .cards + .planes-btn-wrapper {
+    margin-top: 0;
+  }
+}
+@media (max-width: 980px) {
+  .planes-btn-wrapper {
+    margin-top: 24px;
+  }
+  .planes-btn-card {
+    max-width: 100%;
+  }
+}
+/* Mejorar los artículos de planes */
+.card.plan p {
+  color: #111 !important;
+  font-size: 1.35rem;
+  line-height: 1.7;
+  font-weight: 500;
+}
+.card.plan h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #000000;
+}
+/* botones negros */
+.card.plan .btn {
+  background: #000;
+  color: #fff;
+}
+@media (min-width: 980px) {
+  #planes .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    grid-auto-flow: dense;
+  }
+  #planes .planes-btn-card {
+    grid-column: 2 / 3;
+    grid-row: 2;
+    margin-top: 22px;
+  }
+}
+</style>
 
-  <!-- Placeholders for anchors -->
-  <section id="proyectos" class="container" style="padding:60px 0">
-    <h2 style="margin:0 0 10px">Proyectos</h2>
-    <p>Muy pronto: casos reales de La Plata y la región.</p>
+<div class="bg-negro">
+<!-- Planes -->
+<section id="planes" class="section">
+  <div class="container fade-up">
+    <br><br>
+    <h2 style="color: rgb(255, 255, 255);">Nuestros planes</h2>
+    <div class="cards">
+      
+      <article class="card plan">
+        <h3 class="btn" style="color: white; background: #000;">25.000$</h3>
+        <h3>Pagina web para tu restaurante</h3> <br>
+        <p>Tu Propia Carta Digital De Tu Restaurante Con El Menu. <br>
+          <br>Con Opcion De Armar El Pedido En La Web Y Enviarlo Por WhatsApp.
+        </p>
+      </article>
+      
+      <article class="card plan">
+        <h3 class="btn" style="color: white; background: #000;">50.000$</h3>
+        <h3>E-Commerce</h3> <br>
+        <p>Tu Tienda Digital Con Tu Catalogo Fotos y Precios.
+          <br><br>Con Opcion De Armar El Pedido En La Web Y Enviarlo Por WhatsApp.
+        </p>
+      </article>
+      
+      <article class="card plan">
+        <h3 class="btn" style="color: white; background: #000;">35.000$</h3>
+        <h3>Web Dinamica</h3> <br>
+        <p>Tu Pagina Web Dinamica De Tu Negocio Con Funciones Personalizadas
+          <br><br>Hecha A Medida Segun Tus Necesidades. 
+        </p>
+      </article>
+      
+          <article class="card planes-btn-card" tabindex="0" style="cursor:pointer;">
+            <div class="card-header" style="justify-content: center;">
+              <h3>Click Aqui Para Contactanos</h3>
+            </div>
+          </article>
+    </div>
+    </div> <br>  <br>   
   </section>
+</div>     
 
-  <section id="nosotros" class="container" style="padding:60px 0">
-    <h2 style="margin:0 0 10px">Sobre nosotros</h2>
-    <p>Somos un equipo de diseño y desarrollo con foco en resultados medibles.</p>
-  </section>
 
-  <section id="contacto" class="container" style="padding:60px 0">
-    <h2 style="margin:0 0 10px">Contacto</h2>
-    <p>Escribinos a <a href="mailto:contacto@diagonalweb.com">contacto@diagonalweb.com</a> o hablá por WhatsApp.</p>
-    <a class="btn" href="#">Hablar por WhatsApp</a>
-  </section>
+
+  <!-- Contacto -->
+<section id="contacto" class="container" style="padding:60px 0; max-width:500px;">
+  <h2 style="margin:0 0 18px; text-align:center;">Contacto</h2>
+  <p style="text-align:center;">¿Tenés dudas o querés tu web? Escribinos por WhatsApp, email o completá el formulario y te respondemos rápido.</p>
+  
+  <div style="display:flex; justify-content:center; gap:16px; margin:18px 0;">
+    <a class="btn" style="background:#25D366;" href="https://wa.me/5492215062076" target="_blank" rel="noopener">
+      WhatsApp
+    </a>
+    <a class="btn" style="background:#0b66f0;" href="mailto:laplatadiagonalweb@gmail.com">
+      Email
+    </a>
+  </div>
+
+  <form style="background:#f8fafc; padding:22px; border-radius:12px; box-shadow:0 2px 12px rgba(0,0,0,.07);" autocomplete="on">
+    <label for="nombre" style="font-weight:600;">Nombre</label>
+    <input id="nombre" name="nombre" type="text" required style="width:100%;margin-bottom:12px;padding:8px;border-radius:8px;border:1px solid #e5eaf1;">
+    
+    <label for="email" style="font-weight:600;">Email</label>
+    <input id="email" name="email" type="email" required style="width:100%;margin-bottom:12px;padding:8px;border-radius:8px;border:1px solid #e5eaf1;">
+    
+    <label for="mensaje" style="font-weight:600;">Mensaje</label>
+    <textarea id="mensaje" name="mensaje" rows="4" required style="width:100%;margin-bottom:16px;padding:8px;border-radius:8px;border:1px solid #e5eaf1;"></textarea>
+    
+    <button type="submit" class="btn btn-primary" style="width:100%;">Enviar consulta</button>
+  </form>
+</section>
+<!-- Datos de contacto visibles -->
+<div style="margin-top:28px; text-align:center;">
+  <div style="margin-bottom:10px;">
+    <svg style="vertical-align:middle;" width="22" height="22" fill="#0b66f0" viewBox="0 0 24 24"><path d="M2 6.5V18a2 2 0 002 2h16a2 2 0 002-2V6.5l-10 7.5-10-7.5z"/><path d="M22 6V6.5l-10 7.5-10-7.5V6a2 2 0 012-2h16a2 2 0 012 2z" opacity=".3"/></svg>
+    <a href="mailto:laplatadiagonalweb@gmail.com" style="color:#0b66f0; font-weight:600; text-decoration:none; margin-left:6px;">
+      laplatadiagonalweb@gmail.com
+    </a>
+  </div>
+  <div>
+    <svg style="vertical-align:middle;" width="22" height="22" fill="#25D366" viewBox="0 0 24 24"><path d="M20.52 3.48A12 12 0 003.48 20.52a12 12 0 0017.04-17.04zm-8.52 15.02c-3.31 0-6-2.69-6-6 0-3.31 2.69-6 6-6s6 2.69 6 6c0 3.31-2.69 6-6 6zm2.29-4.71l-.82-.82a.996.996 0 00-1.41 0l-.82.82a.996.996 0 000 1.41l.82.82a.996.996 0 001.41 0l.82-.82a.996.996 0 000-1.41z"/></svg>
+    <a href="https://wa.me/5492211234567" style="color:#25D366; font-weight:600; text-decoration:none; margin-left:6px;">
+      +54 9 221 506-2076
+    </a>
+  </div>
+</div>
 
   <footer>
     <div class="container">© <span id="year"></span> Diagonal Web — La Plata</div>
