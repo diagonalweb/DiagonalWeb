@@ -469,7 +469,7 @@
         <a href="#inicio">Inicio</a>
         <a href="#nosotros">Sobre Nosotros</a>
         <a href="#servicios">Que Hacemos</a>
-        <a href="#Planes">Planes Y Precios</a>
+        <a href="#planes">Planes</a>
         <a href="#contacto">Contacto</a>
       </nav>
 
@@ -485,7 +485,7 @@
         <a href="#inicio">Inicio</a>
         <a href="#nosotros">Sobre Nosotros</a>
         <a href="#servicios">Que Hacemos</a>
-        <a href="#Planes">Planes Y Precios</a>
+        <a href="#planes">Planes</a>
         <a href="#contacto">Contacto</a>
       </div>
     </div>
@@ -500,7 +500,7 @@
       <h1 class="headline">Pagina web Para tu Negocio</h1>
       <p class="sub">Somos Diagonal Web, Te Ofrecemos tu Pagina Web para Digitalizar tu negocio</p>
       <div class="cta">
-        <a class="btn btn-primary" href="#planes">Conoce un poco mas</a>
+        <a class="btn btn-primary" href="#nosotros">Conoce un poco mas</a>
       </div>
      <!-- //Tu Sitio web rápidos, tiendas online y estrategias que convierten visitas en ventas. -->
     </div>
@@ -559,7 +559,8 @@ document.addEventListener("DOMContentLoaded", function() {
       <h2>Quiénes Somos</h2>
 
       <p>
-        Somos un equipo joven formado en la UTN De La Plata, apasionados por el
+        Somos un equipo joven formado en una escuela tecnica graduados en tecnicos en programacion
+        y actualmente estudiando en la UTN De La Plata, apasionados por el
         desarrollo web y el crecimiento digital de los negocios. Nuestro
         objetivo es ofrecer soluciones modernas, rápidas y accesibles que ayuden
         a emprendedores y empresas a dar el siguiente paso digital.
@@ -629,7 +630,8 @@ document.addEventListener("DOMContentLoaded", function() {
         <div class="card-header">
           <div class="icon" aria-hidden="true">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M4 18V6m0 12c4 0 6-6 10-6s6 6 6 6" stroke="#1f49bf" stroke-width="2" stroke-linecap="round"/>
+              <rect x="4" y="10" width="16" height="12" rx="2" stroke="#1f49bf" stroke-width="2"/>
+              <path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="#1f49bf" stroke-width="2" stroke-linecap="round"/>
             </svg>
           </div>
           <h3>Rapido y seguro</h3>
@@ -650,7 +652,6 @@ document.addEventListener("DOMContentLoaded", function() {
             <div class="card-header" style="justify-content: center;">
               <h3>Planes Y Precios</h3>
             </div>
-            <!-- El card entero es el botón, no hay botón extra -->
           </article>
         </div>
     </div>
@@ -782,7 +783,7 @@ document.addEventListener("DOMContentLoaded", function() {
         </p>
       </article>
       
-          <article class="card planes-btn-card" tabindex="0" style="cursor:pointer;">
+          <article class="card planes-btn-card" tabindex="0" style="cursor:pointer;" id="card-wsp">
             <div class="card-header" style="justify-content: center;">
               <h3>Click Aqui Para Contactanos</h3>
             </div>
@@ -790,7 +791,20 @@ document.addEventListener("DOMContentLoaded", function() {
     </div>
     </div> <br>  <br>   
   </section>
-</div>     
+</div>
+<script>
+// Abrir WhatsApp al hacer click
+document.getElementById("card-wsp").addEventListener("click", function() {
+  window.open("https://wa.me/5492215062076", "_blank");
+});
+
+// También abrir WhatsApp si el usuario presiona Enter
+document.getElementById("card-wsp").addEventListener("keydown", function(e) {
+  if (e.key === "Enter") {
+    window.open("https://wa.me/5492215062076", "_blank");
+  }
+});
+</script>     
 
 
 
@@ -808,18 +822,38 @@ document.addEventListener("DOMContentLoaded", function() {
     </a>
   </div>
 
-  <form style="background:#f8fafc; padding:22px; border-radius:12px; box-shadow:0 2px 12px rgba(0,0,0,.07);" autocomplete="on">
-    <label for="nombre" style="font-weight:600;">Nombre</label>
-    <input id="nombre" name="nombre" type="text" required style="width:100%;margin-bottom:12px;padding:8px;border-radius:8px;border:1px solid #e5eaf1;">
-    
-    <label for="email" style="font-weight:600;">Email</label>
-    <input id="email" name="email" type="email" required style="width:100%;margin-bottom:12px;padding:8px;border-radius:8px;border:1px solid #e5eaf1;">
-    
-    <label for="mensaje" style="font-weight:600;">Mensaje</label>
-    <textarea id="mensaje" name="mensaje" rows="4" required style="width:100%;margin-bottom:16px;padding:8px;border-radius:8px;border:1px solid #e5eaf1;"></textarea>
-    
-    <button type="submit" class="btn btn-primary" style="width:100%;">Enviar consulta</button>
-  </form>
+<form id="form-wsp" style="background:#f8fafc; padding:22px; border-radius:12px; box-shadow:0 2px 12px rgba(0,0,0,.07);" autocomplete="on">
+  <label for="nombre" style="font-weight:600;">Nombre</label>
+  <input id="nombre" name="nombre" type="text" required style="width:100%;margin-bottom:12px;padding:8px;border-radius:8px;border:1px solid #e5eaf1;">
+  
+  <label for="email" style="font-weight:600;">Email</label>
+  <input id="email" name="email" type="email" required style="width:100%;margin-bottom:12px;padding:8px;border-radius:8px;border:1px solid #e5eaf1;">
+  
+  <label for="mensaje" style="font-weight:600;">Mensaje</label>
+  <textarea id="mensaje" name="mensaje" rows="4" required style="width:100%;margin-bottom:16px;padding:8px;border-radius:8px;border:1px solid #e5eaf1;"></textarea>
+  
+  <button type="submit" class="btn btn-primary" style="width:100%;">Enviar consulta</button>
+</form>
+
+<script>
+document.getElementById("form-wsp").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const nombre = document.getElementById("nombre").value;
+    const email = document.getElementById("email").value;
+    const mensaje = document.getElementById("mensaje").value;
+
+    const texto =
+`Hola, quiero hacer una consulta.%0A
+Me llamo *${nombre}*.%0A
+Mi email es *${email}*.%0A
+Y quería saber lo siguiente:%0A
+${mensaje}`;
+
+    const url = `https://wa.me/5492215062076?text=${texto}`;
+    window.open(url, "_blank");
+});
+</script>
 </section>
 <!-- Datos de contacto visibles -->
 <div style="margin-top:28px; text-align:center;">
@@ -831,7 +865,7 @@ document.addEventListener("DOMContentLoaded", function() {
   </div>
   <div>
     <svg style="vertical-align:middle;" width="22" height="22" fill="#25D366" viewBox="0 0 24 24"><path d="M20.52 3.48A12 12 0 003.48 20.52a12 12 0 0017.04-17.04zm-8.52 15.02c-3.31 0-6-2.69-6-6 0-3.31 2.69-6 6-6s6 2.69 6 6c0 3.31-2.69 6-6 6zm2.29-4.71l-.82-.82a.996.996 0 00-1.41 0l-.82.82a.996.996 0 000 1.41l.82.82a.996.996 0 001.41 0l.82-.82a.996.996 0 000-1.41z"/></svg>
-    <a href="https://wa.me/5492211234567" style="color:#25D366; font-weight:600; text-decoration:none; margin-left:6px;">
+    <a href="https://wa.me/5492215062076" style="color:#25D366; font-weight:600; text-decoration:none; margin-left:6px;">
       +54 9 221 506-2076
     </a>
   </div>
